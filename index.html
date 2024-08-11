@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Cars Website - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Header and Navigation Styling */
+        header {
+            position: relative;
+            height: 300px; /* Adjust height as needed */
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .road-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+
+        .moving-car {
+            position: absolute;
+            bottom: 20px;
+            left: -200px;
+            width: 200px;
+            animation: moveCar 10s linear infinite;
+        }
+
+        @keyframes moveCar {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 20px;
+        }
+
+        #home-content {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #home-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #home-content p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        #featured-cars {
+            margin-bottom: 40px;
+        }
+
+        #featured-cars h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .car-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .car-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .car-item h3 {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+
+        .car-item p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Why Choose Us Section Styling */
+        #why-choose-us {
+            padding: 40px 20px;
+        }
+
+        #why-choose-us h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .why-choose-us-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .feature {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-background">
+            <img src="images/road-background.jpg" alt="Road Background" class="road-background">
+            <img src="images/car.png" alt="Moving Car" class="moving-car">
+        </div>
+        <h1>Welcome to Used Cars Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link" id="home-link">Home</a></li>
+                <li><a href="car-listings.html" class="nav-link" id="car-listings-link">Car Listings</a></li>
+                <li><a href="about.html" class="nav-link" id="about-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link" id="contact-link">Contact</a></li>
+                <li><a href="register.html" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home-content">
+            <h2>Find Your Perfect Car</h2>
+            <p>Browse our selection of used cars and find the perfect vehicle for you.</p>
+            <a href="car-listings.html" class="button">View Listings</a>
+        </section>
+
+        <section id="featured-cars">
+            <h2>Featured Cars</h2>
+            <div class="car-grid">
+                <div class="car-item">
+                    <img src="images/featured-car1.jpg" alt="Featured Car 1">
+                    <h3>2021 Toyota Camry</h3>
+                    <p>The 2021 Toyota Camry offers a smooth ride with excellent fuel efficiency and modern features.</p>
+                    <a href="car-details.html" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/featured-car2.jpg" alt="Featured Car 2">
+                    <h3>2019 Honda Accord</h3>
+                    <p>Experience luxury and reliability with the 2019 Honda Accord, known for its spacious interior and advanced tech.</p>
+                    <a href="car-details.html" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/featured-car3.jpg" alt="Featured Car 3">
+                    <h3>2020 Ford Mustang</h3>
+                    <p>Feel the thrill of driving with the 2020 Ford Mustang, a sports car that combines power with iconic design.</p>
+                    <a href="car-details.html" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/featured-car4.jpg" alt="Featured Car 4">
+                    <h3>2022 Chevrolet Malibu</h3>
+                    <p>The 2022 Chevrolet Malibu provides a comfortable ride with a stylish design and advanced safety features.</p>
+                    <a href="car-details.html" class="button">View Details</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us">
+            <h2>Why Choose Us?</h2>
+            <div class="why-choose-us-content">
+                <div class="feature">
+                    <img src="images/quality-assured.png" alt="Quality Assured">
+                    <h3>Quality Assurance</h3>
+                    <p>Each car in our inventory undergoes rigorous quality checks to ensure it meets our high standards.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/flexible-financing.png" alt="Flexible Financing">
+                    <h3>Flexible Financing</h3>
+                    <p>We offer various financing options to make your car purchase as convenient and affordable as possible.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/customer-service.png" alt="Excellent Customer Service">
+                    <h3>Excellent Customer Service</h3>
+                    <p>Our team is dedicated to providing you with the best customer service experience from start to finish.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Used Cars Website</p>
+    </footer>
+</body>
+</html>

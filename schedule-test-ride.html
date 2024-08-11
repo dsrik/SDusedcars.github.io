@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Test Ride</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-background">
+            <img src="images/road-background.jpg" alt="Road Background" class="road-background">
+            <img src="images/car.png" alt="Moving Car" class="moving-car">
+        </div>
+        <h1>Schedule a Test Ride</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="car-listings.html" class="nav-link">Car Listings</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="register.html" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="test-ride-form">
+            <h2>Test Ride Form</h2>
+            <form id="schedule-form" aria-labelledby="test-ride-form">
+                <label for="license">Driving License No:</label>
+                <input type="text" id="license" name="license" required aria-required="true">
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required aria-required="true">
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required aria-required="true">
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required aria-required="true">
+
+                <button type="submit">Schedule Test Ride</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Used Cars Website</p>
+    </footer>
+
+    <script>
+        document.getElementById('schedule-form').addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form data
+            const license = document.getElementById('license').value;
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            // Display confirmation message or handle submission logic here
+            document.getElementById('test-ride-form').innerHTML = `
+                <h3>Test Ride Scheduled</h3>
+                <p>Thank you, ${name}. Your test ride has been scheduled for ${date} at ${time}.</p>
+                <p>License: ${license}</p>
+                <p>Address: ${address}</p>
+            `;
+        });
+
+        const logoutLink = document.getElementById('logout');
+        logoutLink.addEventListener('click', () => {
+            localStorage.removeItem('username');
+            window.location.href = 'register.html';
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

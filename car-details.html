@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Cars Website - Car Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Header and Navigation Styling */
+        header {
+            position: relative;
+            height: 300px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .road-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+
+        .moving-car {
+            position: absolute;
+            bottom: 20px;
+            left: -200px;
+            width: 200px;
+            animation: moveCar 10s linear infinite;
+        }
+
+        @keyframes moveCar {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #car-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #car-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #car-info img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        #car-info p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .car-actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .action-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-background">
+            <img src="images/road-background.jpg" alt="Road Background" class="road-background">
+            <img src="images/car.png" alt="Moving Car" class="moving-car">
+        </div>
+        <h1>Welcome to Used Cars Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="car-listings.html" class="nav-link">Car Listings</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="register.html" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="car-details">
+            <h2 id="car-name">Car Details</h2>
+            <div id="car-info">
+                <img id="car-image" src="" alt="Car Image">
+                <p><strong>Price:</strong> <span id="car-price"></span></p>
+                <p><strong>Mileage:</strong> <span id="car-mileage"></span></p>
+                <p><strong>Description:</strong> <span id="car-description"></span></p>
+                <div class="car-actions">
+                    <button class="action-button" data-action="buy-rental">Buy/Rental</button>
+                    <button class="action-button" data-action="test-ride">Schedule Test Ride</button>
+                    <button class="action-button" data-action="reserve">Reserve Car</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Used Cars Website</p>
+    </footer>
+
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('username')) {
+            window.location.href = 'register.html';
+        }
+
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const carName = getQueryParam('car');
+        const carInfo = {
+            'Toyota Camry': {
+                name: 'Toyota Camry',
+                image: 'images/toyota-camry.jpg',
+                price: '$20,000',
+                mileage: '25,000 miles',
+                description: 'The 2020 Toyota Camry is a reliable and stylish midsize sedan with a spacious interior, a smooth ride, and advanced safety features. It offers great fuel efficiency and a comfortable driving experience.'
+            },
+            'Honda Civic': {
+                name: 'Honda Civic',
+                image: 'images/honda-civic.jpg',
+                price: '$18,500',
+                mileage: '30,000 miles',
+                description: 'The 2019 Honda Civic is a compact car known for its fuel efficiency, smooth ride, and advanced safety features. It offers a stylish design, a comfortable interior, and a responsive driving experience.'
+            },
+            'Ford Mustang': {
+                name: 'Ford Mustang',
+                image: 'images/ford-mustang.jpg',
+                price: '$25,000',
+                mileage: '15,000 miles',
+                description: 'The 2018 Ford Mustang is an iconic American muscle car with a powerful engine, aggressive styling, and a thrilling driving experience. It offers a comfortable interior and advanced technology features.'
+            },
+            'Chevrolet Malibu': {
+                name: 'Chevrolet Malibu',
+                image: 'images/chevrolet-malibu.jpg',
+                price: '$22,000',
+                mileage: '20,000 miles',
+                description: 'The 2021 Chevrolet Malibu is a midsize sedan with a refined ride, a spacious interior, and advanced technology features. It offers a smooth driving experience and excellent fuel efficiency.'
+            },
+            'BMW X5': {
+                name: 'BMW X5',
+                image: 'images/bmw-x5.jpg',
+                price: '$35,000',
+                mileage: '30,000 miles',
+                description: 'The 2019 BMW X5 is a luxury SUV with a powerful engine, a sophisticated interior, and advanced safety features. It offers a smooth ride, ample cargo space, and a high-quality cabin.'
+            },
+            'Audi A4': {
+                name: 'Audi A4',
+                image: 'images/audi-a4.jpg',
+                price: '$28,000',
+                mileage: '18,000 miles',
+                description: 'The 2020 Audi A4 is a luxury compact sedan with a refined interior, a smooth ride, and advanced technology features. It offers excellent handling, a comfortable cabin, and a stylish design.'
+            },
+            'Mercedes-Benz E-Class': {
+                name: 'Mercedes-Benz E-Class',
+                image: 'images/mercedes-benz-e-class.jpg',
+                price: '$40,000',
+                mileage: '12,000 miles',
+                description: 'The 2021 Mercedes-Benz E-Class is a luxury midsize sedan with a luxurious interior, advanced technology features, and a smooth ride. It offers powerful engine options and a comfortable driving experience.'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const car = carInfo[carName];
+            if (car) {
+                document.getElementById('car-name').textContent = car.name;
+                document.getElementById('car-image').src = car.image;
+                document.getElementById('car-price').textContent = car.price;
+                document.getElementById('car-mileage').textContent = car.mileage;
+                document.getElementById('car-description').textContent = car.description;
+            } else {
+                document.getElementById('car-info').innerHTML = '<p>Car details not found.</p>';
+            }
+        });
+
+        const actionButtons = document.querySelectorAll('.action-button');
+        actionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const action = button.getAttribute('data-action');
+                handleCarAction(action);
+            });
+        });
+
+        function handleCarAction(action) {
+            switch(action) {
+                case 'buy-rental':
+                    window.location.href = 'buy-rental.html?car=' + encodeURIComponent(carName);
+                    break;
+                case 'test-ride':
+                    window.location.href = 'schedule-test-ride.html?car=' + encodeURIComponent(carName);
+                    break;
+                case 'reserve':
+                    window.location.href = 'reserve-car.html?car=' + encodeURIComponent(carName);
+                    break;
+                default:
+                    alert('Unknown action.');
+            }
+        }
+
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('username');
+            window.location.href = 'register.html';
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

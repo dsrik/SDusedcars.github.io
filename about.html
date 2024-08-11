@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Used Cars Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* About Us Section Styling */
+        #about-us {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #about-us h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #about-us p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        #about-us ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        #about-us ul li {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        #about-us a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        #about-us a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Background and Navigation */
+        header {
+            position: relative;
+            height: 300px; /* Adjust height as needed */
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .road-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+
+        .moving-car {
+            position: absolute;
+            bottom: 20px;
+            left: -200px;
+            width: 200px;
+            animation: moveCar 10s linear infinite;
+        }
+
+        @keyframes moveCar {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-background">
+            <img src="images/road-background.jpg" alt="Road Background" class="road-background">
+            <img src="images/car.png" alt="Moving Car" class="moving-car">
+        </div>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="car-listings.html" class="nav-link">Car Listings</a></li>
+                <li><a href="about.html" class="nav-link active">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="register.html" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about-us">
+            <h2>Our Story</h2>
+            <p>Founded in [Year], Used Cars Website is a family-owned business dedicated to providing quality pre-owned vehicles to our valued customers. Our journey began with a simple mission: to make buying and selling used cars a transparent, straightforward, and enjoyable experience.</p>
+            
+            <h2>Our Mission</h2>
+            <p>Our mission is to offer high-quality, reliable used cars at competitive prices while delivering exceptional customer service. We believe in building lasting relationships with our clients, offering them not just a vehicle, but a personalized and hassle-free car buying experience. Our commitment to integrity, transparency, and customer satisfaction is at the core of everything we do.</p>
+            
+            <h2>Our Values</h2>
+            <ul>
+                <li><strong>Integrity:</strong> We operate with honesty and transparency, ensuring that our customers have all the information they need to make an informed decision.</li>
+                <li><strong>Quality:</strong> We rigorously inspect and test each vehicle to ensure it meets our high standards for safety and reliability.</li>
+                <li><strong>Customer Focus:</strong> We prioritize our customers’ needs and strive to exceed their expectations at every stage of their car-buying journey.</li>
+                <li><strong>Innovation:</strong> We embrace technology and innovation to enhance the car-buying experience, from our user-friendly website to our efficient customer service processes.</li>
+                <li><strong>Community:</strong> We are proud to be a part of our local community and are committed to giving back through various initiatives and partnerships.</li>
+            </ul>
+            
+            <h2>Our Team</h2>
+            <p>Our team is composed of dedicated professionals who are passionate about cars and committed to providing the best possible service. From our experienced sales staff to our skilled mechanics and customer support team, every member of our team plays a crucial role in ensuring that you have a positive experience with us.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions or would like to learn more about our services, please don’t hesitate to reach out. We’re here to help you find the perfect vehicle and make your car-buying experience a memorable one.</p>
+            
+            <p><strong>Address:</strong> [Your Address]</p>
+            <p><strong>Phone:</strong> [Your Phone Number]</p>
+            <p><strong>Email:</strong> <a href="mailto:info@usedcarswebsite.com">info@usedcarswebsite.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Used Cars Website</p>
+    </footer>
+</body>
+</html>

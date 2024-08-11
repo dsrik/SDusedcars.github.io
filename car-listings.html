@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Cars Website - Car Listings</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Header and Navigation Styling */
+        header {
+            position: relative;
+            height: 300px; /* Adjust height as needed */
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .road-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(50%);
+        }
+
+        .moving-car {
+            position: absolute;
+            bottom: 20px;
+            left: -200px;
+            width: 200px;
+            animation: moveCar 10s linear infinite;
+        }
+
+        @keyframes moveCar {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        h1 {
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #car-listings-content {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #car-listings-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .car-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .car-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .car-item h3 {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+
+        .car-item p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-background">
+            <img src="images/road-background.jpg" alt="Road Background" class="road-background">
+            <img src="images/car.png" alt="Moving Car" class="moving-car">
+        </div>
+        <h1>Car Listings</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="car-listings.html" class="nav-link active">Car Listings</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="register.html" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="car-listings-content">
+            <h2>Our Car Listings</h2>
+            <div class="car-grid">
+                <div class="car-item">
+                    <img src="images/toyota-camry.jpg" alt="Toyota Camry">
+                    <h3>2020 Toyota Camry</h3>
+                    <p>A reliable car with great fuel efficiency and modern features.</p>
+                    <a href="car-details.html?car=Toyota%20Camry" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/honda-civic.jpg" alt="Honda Civic">
+                    <h3>2019 Honda Civic</h3>
+                    <p>Luxurious interior and advanced technology.</p>
+                    <a href="car-details.html?car=Honda%20Civic" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/ford-mustang.jpg" alt="Ford Mustang">
+                    <h3>2018 Ford Mustang</h3>
+                    <p>Iconic design with powerful performance.</p>
+                    <a href="car-details.html?car=Ford%20Mustang" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/chevrolet-malibu.jpg" alt="Chevrolet Malibu">
+                    <h3>2021 Chevrolet Malibu</h3>
+                    <p>Stylish design with advanced safety features.</p>
+                    <a href="car-details.html?car=Chevrolet%20Malibu" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/bmw-x5.jpg" alt="BMW X5">
+                    <h3>2019 BMW X5</h3>
+                    <p>Luxury SUV with powerful engine and high-quality cabin.</p>
+                    <a href="car-details.html?car=BMW%20X5" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/audi-a4.jpg" alt="Audi A4">
+                    <h3>2020 Audi A4</h3>
+                    <p>Refined interior and excellent handling.</p>
+                    <a href="car-details.html?car=Audi%20A4" class="button">View Details</a>
+                </div>
+                <div class="car-item">
+                    <img src="images/mercedes-benz-e-class.jpg" alt="Mercedes-Benz E-Class">
+                    <h3>2021 Mercedes-Benz E-Class</h3>
+                    <p>Luxurious midsize sedan with advanced technology.</p>
+                    <a href="car-details.html?car=Mercedes-Benz%20E-Class" class="button">View Details</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Used Cars Website</p>
+    </footer>
+
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('username')) {
+            window.location.href = 'register.html';
+        }
+
+        const logoutLink = document.getElementById('logout');
+        logoutLink.addEventListener('click', () => {
+            localStorage.removeItem('username');
+            window.location.href = 'register.html';
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
